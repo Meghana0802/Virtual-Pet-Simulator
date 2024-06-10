@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Pet Simulator</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Popup -->
+    <div id="popUp" class="popup">
+        <div class="popup-content">
+            <h2 id="popupHeading">Welcome to Virtual Pet Simulator!</h2>
+            <hr>
+            <p id="popupInnerContent">Click the button below to start the game.</p>
+            <button id="popupButton">Start Game</button>
+        </div>
+    </div>
+    <!-- Sky and other elements -->
+    <div class="sky">
+        <!-- sun -->
+        <div class="sun"></div>
+        <div class="indicators">
+            <!-- hunger indicator -->
+            <div class="hunger">
+                <div class="container">
+                    <i class="fas fa-bone fa-2x"></i>
+                    HUNGER
+                    <span id="hunger-value">50</span>
+                </div>
+            </div>
+            <!-- happiness indicator -->
+            <div class="happiness">
+                <div class="container">
+                    <i class="fas fa-smile fa-2x"></i>
+                    HAPPINESS
+                    <span id="happiness-value">50</span>
+                </div>
+            </div>
+            <!-- energy indicator -->
+            <div class="energy">
+                <div class="container">
+                    <i class="fas fa-frown fa-2x"></i>
+                    ENERGY
+                    <span id="energy-value">40</span>
+                </div>
+            </div>
+        </div>
+        <!-- Buttons to feed,play and sleep -->
+        <div class="buttons">
+            <button type="submit" id="feed-button">Feed</button>
+            <button type="submit" id="play-button">Play</button>
+            <button type="submit" id="sleep-button">Sleep</button>
+        </div>
+        <!-- User profile -->
+        <div class="features">
+            <div class="profile">
+                <i class="fas fa-user"></i>
+                <div class="achievement-points">
+                    <i class="fas fa-fire"></i>
+                    <span id="badges">0</span>
+                    <i class="fas fa-gem"></i>
+                    <span id="points">0</span>
+                </div>
+            </div>
+            <!-- Day and night mode button-->
+            <div class="modes">
+                <button type="submit" id="toggle-button">Night Mode</button>
+            </div>
+        </div>
+    </div>
+    <!-- Ground -->
+    <div class="ground">
+        <img src="./images/Normal.png" alt="dog" class="dog" id="dog-image" />
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

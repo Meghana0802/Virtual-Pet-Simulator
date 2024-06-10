@@ -1,0 +1,452 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/*popup styles*/
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(87, 87, 87, 0.5);
+}
+
+.popup-content {
+  background-color: #2b2929;
+  width: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+hr{
+   color: white;
+   border: 2px solid white;
+}
+
+.popup-content h2 {
+  margin-bottom: 10px;
+}
+
+.popup-content button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup-content button:hover {
+  background-color: #0056b3;
+}
+
+/* Sky style */
+.sky {
+  width: 100%;
+  height: 70vh;
+  background-color: #87cefa;
+}
+
+/* Sun style */
+.sun {
+  width: 125px;
+  height: 125px;
+  background-color: #ffbf00;
+  border-radius: 50%;
+  position: relative;
+  left: 85%;
+  top: 10%;
+}
+
+/* Hide the sun up to 500px width */
+@media (max-width: 500px) {
+  .sun {
+    opacity: 0;
+  }
+}
+
+/* Make the sun smaller between 500px and 850px width */
+@media (min-width: 501px) and (max-width: 850px) {
+  .sun {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+/* Moon style */
+.moon {
+  width: 125px;
+  height: 125px;
+  background-color: transparent;
+  position: relative;
+  left: 80%;
+  top: 10%;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 25px 10px 0 0 white;
+}
+
+/* Hide the moon up to 500px width */
+@media (max-width: 500px) {
+  .moon {
+    opacity: 0;
+  }
+}
+
+/* Make the moon smaller between 500px and 850px width */
+@media (min-width: 501px) and (max-width: 850px) {
+  .moon {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+.indicators {
+  display: flex;
+}
+
+/* Indicator icons */
+.fa-bone {
+  color: rgb(141, 63, 4);
+}
+
+.fa-smile {
+  color: rgb(253, 29, 148);
+}
+
+.fa-frown {
+  color: rgb(2, 2, 43);
+}
+
+/* Container for each indicator */
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 20px;
+  bottom: 80px;
+  margin: 10px;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Value styling */
+#hunger-value,
+#happiness-value,
+#energy-value {
+  font-size: 20px;
+}
+
+/* Buttons style */
+.buttons {
+  position: relative;
+  left: 20px;
+  bottom: 50px;
+}
+
+/* FEED Button */
+#feed-button {
+  background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 30px;
+}
+
+#feed-button:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+#feed-button:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+/* PLAY Button */
+#play-button {
+  background: linear-gradient(to bottom right, #FFD166, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  position: relative;
+  margin-right: 35px;
+}
+
+#play-button:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(255, 209, 102, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+#play-button:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(255, 209, 102, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+/* SLEEP Button */
+#sleep-button {
+  background: linear-gradient(to bottom right, #6A5ACD, #9370DB);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+#sleep-button:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(106, 90, 205, 0.5), .125rem .125rem 1rem rgba(147, 112, 219, 0.5);
+}
+
+#sleep-button:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(106, 90, 205, 0.5), .125rem .125rem 1rem rgba(147, 112, 219, 0.5);
+}
+
+/* Profile section */
+.features {
+  display: flex;
+  align-items: center;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  color: #333;
+  /* Default color for icons and text */
+  padding: 15px;
+  border-radius: 5px;
+  background: rgb(0, 2, 12);
+  margin-right: 20px;
+  width: 150px;
+  margin-left: 25px;
+}
+
+/* Profile icon styling */
+.profile i {
+  margin-right: 10px;  
+}
+
+/* User icon styling */
+.profile .fa-user {
+  background-color: grey;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styling for fire icon */
+.achievement-points .fa-fire {
+  color: #ffa500;
+  font-size: 20px;
+}
+
+/* Styling for gem icon */
+.achievement-points .fa-gem {
+  color: lightskyblue;
+  font-size: 20px;
+}
+
+/* Text styling for achievement points */
+.achievement-points span {
+  font-size: 20px;
+  color: white;
+}
+
+/* Ground style */
+.ground {
+  width: 100%;
+  height: 30vh;
+  background-color: #adff2f;
+}
+
+/* Initial Dog animation */
+.dog {
+  position: relative;
+  animation-name: normal;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+@keyframes normal {
+  0% {
+    left: 20px;
+  }
+
+  50% {
+    left: calc(50% - 125px);
+  }
+
+  100% {
+    left: calc(50% - 125px);
+  }
+}
+
+/* Food bowl animation and styling */
+.food-bowl {
+  position: relative;
+  animation-name: food;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  width: 100px;
+  height: 100px;
+}
+
+@keyframes food {
+  0% {
+    left: 20px;
+  }
+
+  50% {
+    left: calc(50% - 100px);
+  }
+
+  100% {
+    left: calc(50% - 100px);
+  }
+}
+
+/* Ball animation and styling */
+.dog-ball {
+  position: relative;
+  animation-name: ball;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  bottom: 50px;
+  width: 45px;
+  height: 45px;
+}
+
+@keyframes ball {
+  0% {
+    left: 20px;
+  }
+
+  50% {
+    left: calc(100% - 65px);
+  }
+
+  100% {
+    left: 20px;
+  }
+}
+
+/* Playing dog animation and styling */
+.dog-running {
+  position: relative;
+  animation-name: ball;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  bottom: 60px;
+}
+
+@keyframes ball {
+  0% {
+    left: 20px;
+  }
+
+  50% {
+    left: calc(100% - 300px);
+  }
+
+  100% {
+    left: 20px;
+  }
+}
+
+.dog-center {
+  margin: 0 auto;
+}
+
+/* Button styling for night and day modes */
+#toggle-button {
+  background: linear-gradient(to bottom right, #050121, #280af0);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+#toggle-button:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(6, 2, 29, 0.5), .125rem .125rem 1rem rgba(20, 7, 138, 0.5);
+}
+
+#toggle-button:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(6, 2, 29, 0.5), .125rem .125rem 1rem rgba(20, 7, 138, 0.5);
+}
